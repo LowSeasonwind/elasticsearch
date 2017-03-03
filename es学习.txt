@@ -332,7 +332,23 @@ nested类型在聚合中的使用方法
   }
 }
 
-
-
-
+柱状图桶histogram 聚合  interval 设定间隔
+如下例会按照漏洞评分的值间隔2分进行聚合统计
+{
+  "aggs": {
+    "score": {
+      "nested": {
+        "path": "exploit"
+      },
+      "aggs": {
+        "score": {
+          "histogram": {
+            "field": "exploit.cvssbasescore",
+            "interval": 2
+          }
+        }
+      }
+    }
+  }
+}
 
