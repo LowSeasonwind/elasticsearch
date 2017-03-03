@@ -1,4 +1,6 @@
-搜索：
+-----------------------------------------------------------------------------------
+索引index:
+-----------------------------------------------------------------------------------
 curl -XPUT 'http://localhost:9200/megacorp/employee/1' -d '
 {
     "first_name" : "John",
@@ -7,6 +9,9 @@ curl -XPUT 'http://localhost:9200/megacorp/employee/1' -d '
     "about" :      "I love to go a rock climbing",
     "interests": [ "sports" ]
 }'
+-----------------------------------------------------------------------------------
+match用法：
+-----------------------------------------------------------------------------------
 curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
     "query" : {
         "match" : {
@@ -14,6 +19,9 @@ curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
         }
     }
 }'
+-----------------------------------------------------------------------------------
+filtered过滤：
+-----------------------------------------------------------------------------------
 curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
     "query" : {
         "filtered" : {
@@ -30,6 +38,9 @@ curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
         }
     }
 }'
+-----------------------------------------------------------------------------------
+短语匹配：
+-----------------------------------------------------------------------------------
 curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
    "query" : {
         "match_phrase" : {
@@ -49,7 +60,9 @@ curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
         }
     }
 }'
-聚合：
+-----------------------------------------------------------------------------------
+简单聚合：
+-----------------------------------------------------------------------------------
 curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
   "query": {
     "match": {
@@ -67,22 +80,32 @@ curl -XGET 'http://localhost:9200/megacorp/employee/_search' -d '{
     }
   }
 }'
+-----------------------------------------------------------------------------------
+索引设置：
+-----------------------------------------------------------------------------------
 curl -XPUT 'http://localhost:9200/blogs' -d '{
    "settings" : {
       "number_of_shards" : 3,
       "number_of_replicas" : 1
    }
 }'
+更改索引设置
 curl -XPUT 'http://localhost:9200/megacorp/_settings' -d '{
     "number_of_replicas" : 1
 }'
 curl -XGET 'http://localhost:9200/_cluster/health' 
+-----------------------------------------------------------------------------------
+简单的q查询
+-----------------------------------------------------------------------------------
 curl -XGET 'http://localhost:9200/megacorp/employee/3?pretty'
 curl -XGET 'http://localhost:9200/megacorp/employee/1?_source=last_name,age&pretty'
 curl -XGET 'http://localhost:9200/megacorp/employee/1?_source'
 curl -XHEAD 'http://localhost:9200/megacorp/employee/1?pretty'
 curl -XDELETE 'http://localhost:9200/megacorp/employee/2?pretty'
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 curl -XPOST 'http://localhost:9200/megacorp/employee/' -d '
+
 {
     "first_name" : "Jenny",
     "last_name" :  "Forland",
