@@ -1,0 +1,479 @@
+{
+  "settings": {
+    "number_of_shards": "4",
+    "number_of_replicas": "0",
+    "refresh_interval": "30s"
+  },
+  "mappings": {
+    "base": {
+      "properties": {
+        "port": {
+          "type": "integer"
+        },
+        "res": {
+          "type": "string"
+        },
+        "updatetime": {
+          "format": "strict_date_optional_time||epoch_millis",
+          "type": "date"
+        },
+        "location": {
+          "properties": {
+            "region": {
+              "properties": {
+                "en": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "zh-CN": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "code": {
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "area": {
+              "properties": {
+                "en": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "zh-CN": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "longitude": {
+              "type": "float"
+            },
+            "latitude": {
+              "type": "float"
+            },
+            "country": {
+              "properties": {
+                "en": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "zh-CN": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "code": {
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "city": {
+              "properties": {
+                "en": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "zh-CN": {
+                  "null_value": "unknown",
+                  "type": "string",
+                  "fields": {
+                    "untouched": {
+                      "index": "not_analyzed",
+                      "null_value": "unknown",
+                      "type": "string"
+                    }
+                  }
+                },
+                "code": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "data": {
+          "type": "string"
+        },
+        "org": {
+          "properties": {
+            "en": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "zh-CN": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "version": {
+          "type": "integer"
+        },
+        "has_app": {
+          "type": "boolean"
+        },
+        "certificate": {
+          "type": "string"
+        },
+        "has_site": {
+          "type": "boolean"
+        },
+        "capture": {
+          "type": "string"
+        },
+        "has_exploit": {
+          "type": "boolean"
+        },
+        "site": {
+          "properties": {
+            "whois": {
+              "type": "string"
+            },
+            "domain": {
+              "type": "string"
+            },
+            "hostname": {
+              "type": "string"
+            }
+          }
+        },
+        "app": {
+          "properties": {
+            "name": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "version": {
+              "index": "not_analyzed",
+              "null_value": "unknown",
+              "type": "string"
+            }
+          }
+        },
+        "os": {
+          "null_value": "unknown",
+          "type": "string",
+          "fields": {
+            "untouched": {
+              "index": "not_analyzed",
+              "null_value": "unknown",
+              "type": "string"
+            }
+          }
+        },
+        "protocol": {
+          "null_value": "unknown",
+          "type": "string"
+        },
+        "isp": {
+          "properties": {
+            "en": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "zh-CN": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "has_capture": {
+          "type": "boolean"
+        },
+
+
+        "exploit": {
+          "type":"nested",
+          "properties":{
+            "uuid":{"type":"string","index":"not_analyzed"},
+            "data":{"type":"string"},
+            "cvssbasescore":{"type":"double"},
+			"exact": {"type": "integer"}
+
+          }
+        },
+
+
+
+
+        "ip": {
+          "type": "long"
+        },
+        "product": {
+          "properties": {
+            "vendor": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "vendorcn":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields":{
+                "untouched":{
+                  "type":"string",
+                  "null_value":"unknown",
+                  "index":"not_analyzed"
+                }
+              }
+            },
+            "namecn": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "name": {
+              "null_value": "unknown",
+              "type": "string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "version": {
+              "index": "not_analyzed",
+              "null_value": "unknown",
+              "type": "string"
+            },
+            "module_num":{
+              "type":"string",
+              "null_value":"unknown",
+              "fields":{
+                "untouched":{
+                  "type":"string",
+                  "index":"not_analyzed",
+                  "null_value": "unknown"
+                }
+              }
+            },
+            "model":{
+              "type":"string",
+              "null_value":"unknown",
+              "fields":{
+                "untouched":{
+                  "type":"string",
+                  "index":"not_analyzed",
+                  "null_value": "unknown"
+                }
+              }
+            }
+          }
+        },
+        "flag": {
+          "type": "integer"
+        },
+        "ip_str": {
+          "type": "string"
+        },
+
+        "device": {
+          "properties": {
+            "desc": {
+              "type": "string"
+            },
+            "primary_type":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "secondary_type":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "third_type":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "third_cn":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            },
+            "secondary_cn":{
+              "null_value":"unknown",
+              "type":"string",
+              "fields": {
+                "untouched": {
+                  "index": "not_analyzed",
+                  "null_value": "unknown",
+                  "type": "string"
+                }
+              }
+            }
+
+          }
+        },
+
+
+        "service": {
+          "null_value": "unknown",
+          "type": "string",
+          "fields": {
+            "untouched": {
+              "index": "not_analyzed",
+              "null_value": "unknown",
+              "type": "string"
+            }
+          }
+        },
+        "html": {
+          "properties": {
+            "content": {
+              "type": "string"
+            },
+            "author": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "keywords": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "copyright": {
+              "type": "string"
+            }
+          }
+        },
+        "taskbatchesid":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
+        "taskownerid":{
+          "type":"string",
+          "index":"not_analyzed"
+        }
+      }
+    }
+  }
+}
